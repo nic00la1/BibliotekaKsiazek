@@ -65,7 +65,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="MVVM\ViewModel\" />
 	  <Folder Include="MVVM\View\" />
 	</ItemGroup>
 
