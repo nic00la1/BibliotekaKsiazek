@@ -15,5 +15,6 @@ namespace BibliotekaKsiazek.MVVM.Model
         public double Rate { get; set; }
         public double Price { get; set; }
         public int Amount { get; set; }
+        public string ImagePath { get; set; }
     }
 }
