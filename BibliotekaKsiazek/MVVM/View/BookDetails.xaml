@@ -12,11 +12,48 @@
 
     <ScrollView>
         <VerticalStackLayout Padding="30, 0" Spacing="25">
-            <Image Source="{Binding SelectedBook.ImagePath}" HeightRequest="300" />
-            <Label Text="{Binding SelectedBook.Title}" FontSize="30" />
-            <Label Text="{Binding SelectedBook.Author}" FontSize="20" />
-            <Label Text="{Binding SelectedBook.Description}" FontSize="16" />
-            <Label Text="{Binding SelectedBook.Price, StringFormat='{}{0:C}'}" FontSize="20" />
+            <Frame HasShadow="True" CornerRadius="10" Padding="0">
+                <Image Source="{Binding SelectedBook.ImagePath}" HeightRequest="300" WidthRequest="300" Aspect="AspectFit" />
+            </Frame>
+            <Frame HasShadow="True" CornerRadius="10" Padding="10">
+                <Label Text="{Binding SelectedBook.Title}" FontSize="30" FontAttributes="Bold" HorizontalOptions="Center" />
+            </Frame>
+            <Frame HasShadow="True" CornerRadius="10" Padding="10">
+                <Label Text="{Binding SelectedBook.Author}" FontSize="20" FontAttributes="Italic" HorizontalOptions="Center" />
+            </Frame>
+            <Frame HasShadow="True" CornerRadius="10" Padding="10">
+                <Label Text="{Binding SelectedBook.Description}" FontSize="16" />
+            </Frame>
+            <Frame HasShadow="True" CornerRadius="10" Padding="10">
+                <Label FontSize="25" FontAttributes="Bold" >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Cena: " />
+                            <Span Text="{Binding SelectedBook.Price, StringFormat='{}{0:C}'}" TextColor="Green"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Frame>
+            <Frame HasShadow="True" CornerRadius="10" Padding="10">
+                <Label FontSize="17">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Ocena: " />
+                            <Span Text="{Binding SelectedBook.Rate}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Frame>
+            <Frame HasShadow="True" CornerRadius="10" Padding="10">
+                <Label FontSize="17">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Ilość: " />
+                            <Span Text="{Binding SelectedBook.Amount}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Frame>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
