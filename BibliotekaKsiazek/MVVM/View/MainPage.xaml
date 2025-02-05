@@ -8,26 +8,25 @@
         <vm:MainPageViewModel />
     </ContentPage.BindingContext>
     <ScrollView>
-        <VerticalStackLayout
-            Padding="30, 0"
-            Spacing="25">
-                <CollectionView ItemsSource="{Binding Books}">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <VerticalStackLayout>
-                                <Border Padding="10" Margin="5">
-                                    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*">
-                                        <Image Source="{Binding ImagePath}" HeightRequest="150" Grid.Row="0" />
-                                        <Label Text="{Binding Title}" FontSize="25" Grid.Row="1" />
-                                        <!--cena-->
-                                        <Label Text="{Binding Price, StringFormat='{}{0:C}'}" FontSize="20" Grid.Row="4" />
-                                    </Grid>
-                                </Border>
+        <VerticalStackLayout Padding="30, 0" Spacing="25">
+            <CollectionView ItemsSource="{Binding Books}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout>
+                            <Border Padding="10" Margin="5">
+                                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*">
+                                    <Image Source="{Binding ImagePath}" HeightRequest="150" Grid.Row="0" />
+                                    <Label Text="{Binding Title}" FontSize="25" Grid.Row="1" />
+                                    <Label Text="{Binding Price, StringFormat='{}{0:C}'}" FontSize="20" Grid.Row="4" />
+                                </Grid>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MainPageViewModel}}, Path=NavigateToDetailCommand}" CommandParameter="{Binding}" />
+                                </Border.GestureRecognizers>
+                            </Border>
                         </VerticalStackLayout>
-                           
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </VerticalStackLayout>
     </ScrollView>
 
