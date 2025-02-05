@@ -9,7 +9,9 @@
     </ContentPage.BindingContext>
     <ScrollView>
         <VerticalStackLayout Padding="30, 0" Spacing="25">
-            <CollectionView ItemsSource="{Binding Books}">
+            <Label Text="Biblioteka Książek" FontSize="30" HorizontalOptions="Center" />
+            <SearchBar Placeholder="Szukaj książek" Text="{Binding SearchQuery}" />
+            <CollectionView ItemsSource="{Binding FilteredBooks}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <VerticalStackLayout>
