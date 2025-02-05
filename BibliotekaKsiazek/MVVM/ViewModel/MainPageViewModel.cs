@@ -12,7 +12,18 @@ namespace BibliotekaKsiazek.MVVM.ViewModel
 {
     public class MainPageViewModel : INotifyPropertyChanged
     {
+        private Book _selectedBook;
         public ObservableCollection<Book> Books;
+
+        public Book SelectedBook
+        {
+            get => _selectedBook;
+            set
+            {
+                _selectedBook = value;
+                OnPropertyChanged(nameof(Book));
+            }
+        }
 
         public MainPageViewModel()
         {
@@ -29,6 +40,8 @@ namespace BibliotekaKsiazek.MVVM.ViewModel
                 new() { Id=9, Title="Mistrz i Małgorzata", Author="Michaił Bułhakow", Description = "Powieść fantastyczna", Price = 29.00, Rate = 4.9, Amount = 14 },
                 new() { Id=10, Title="W pustyni i w puszczy", Author="Henryk Sienkiewicz", Description = "Powieść przygodowa", Price = 22.00, Rate = 4.6, Amount = 25 }
             };
+
+            SelectedBook = Books[0];
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
